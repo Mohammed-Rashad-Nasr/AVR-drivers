@@ -3,10 +3,10 @@
 
 here you can find drivers for these peripherals :
 
--  RCC 
+
 -  GPIO 
--  NVIC
--  STK
+
+
 
 Each driver includes 4 files :
 
