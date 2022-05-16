@@ -82,8 +82,7 @@ GPIO_TypedefErrorType GPIO_voidSetPinType (u8 COPY_u8PortId , u8 COPY_u8PinId , 
 GPIO_TypedefErrorType GPIO_voidWritePin (u8 COPY_u8PortId , u8 COPY_u8PinId , u8 COPY_u8Value)
 {
 	if      (COPY_u8PinId < 0 || COPY_u8PinId > 7)            return GPIO_INVALID_PIN_ID ;
-	else if (COPY_u8PinType != 0b0 && COPY_u8PinType != 0b1 ) return GPIO_INVALID_TYPE   ;
-	else if (COPY_u8Value   != 0   && COPY_u8Value   != 0   ) return GPIO_INVALID_VALUE  ;
+	else if (COPY_u8Value   != 0   && COPY_u8Value   != 1   ) return GPIO_INVALID_VALUE  ;
 	else 
 	{
 		if (COPY_u8PortId == GPIO_PORTA)
@@ -155,8 +154,8 @@ GPIO_TypedefErrorType GPIO_voidSetPortType (u8 COPY_u8PortId , u8 COPY_u8PinType
 
 GPIO_TypedefErrorType GPIO_voidWritePort (u8 COPY_u8PortId , u8 COPY_u8Value)
 {
-	if      (COPY_u8PinType != 0b0 && COPY_u8PinType != 0b1 ) return GPIO_INVALID_TYPE    ;
-	else if (COPY_u8Value   != 0   && COPY_u8Value   != 0   ) return GPIO_INVALID_VALUE   ;
+	if      (COPY_u8PortId < 0 || COPY_u8PortId > 3)          return GPIO_INVALID_PORT_ID ;
+	else if (COPY_u8Value   != 0   && COPY_u8Value   != 1   ) return GPIO_INVALID_VALUE   ;
 	else 
 	{
 		u8 LOCAL_u8Count = 0 ;                                                                        //for loop counter
